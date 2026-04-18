@@ -11,6 +11,7 @@
     --color-bgDarkPink: #efa8ce;
     --color-bgGray: #726c6e;
     --color-bgLightGray: #dfdcd8;
+    --color-bgDarkGray: #443d3f;
     --color-bgYellow: #fefbc6;
 }
 
@@ -18,7 +19,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     font-family: var(--font-body);
-    color: white;
+    color: var(--color-bgDarkGray);
     font-size: 14px;
 }
 
