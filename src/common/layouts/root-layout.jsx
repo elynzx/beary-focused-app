@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Sidebar } from "../components/sidebar/sidebar";
+import { Sidebar } from "../components/sidebar/sidebar.jsx";
 import { Header } from "../../features/board/components/header/header";
 import { useTasks } from "../../features/board/hooks/useTasks";
 
