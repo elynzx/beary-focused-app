@@ -1,4 +1,4 @@
-import { Timer } from "../timer/Timer";
+import { Timer } from "../timer/timer";
 import { Link } from "react-router";
 
 export function Sidebar() {
