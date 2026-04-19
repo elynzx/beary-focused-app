@@ -53,15 +53,15 @@ export function Header({ onAdd, tasks }) {
                 <span className="font-semibold text-bgDarkGray mr-8 mt-2.5">
                     Quick Add Task:
                 </span>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 w-80">
                     <input
                         placeholder="I need to..."
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && handleClick()}
-                        className="bg-white h-7 text-xs px-6 text-bgDarkGray w-full outline-none border-2 border-transparent focus:border-bgDarkGray transition-all rounded-full placeholder:text-bgBrown4/40"
+                        className="bg-white h-9 text-xs px-6 text-bgDarkGray outline-none border border-transparent focus:border-bgDarkGray transition-all rounded-full placeholder:text-bgBrown4/40"
                     />
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 justify-between">
                         <Dropdown
                             selected={quadrantId}
                             onSelect={setQuadrantId}

@@ -16,7 +16,7 @@ export const Dropdown = ({ selected, onSelect }) => {
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-80 h-9 px-5 text-bgDarkGray font-bold bg-bgDarkPink border border-bgDarkGray rounded-full flex items-center justify-between hover:opacity-90 transition-all"
+                className="w-50 h-9 px-5 text-bgDarkGray font-bold bg-bgDarkPink border border-bgDarkGray rounded-full flex items-center justify-between hover:opacity-90 transition-all"
             >
                 <span className="truncate">
                     {selectedOption ? selectedOption.label : "Select priority"}
@@ -26,14 +26,14 @@ export const Dropdown = ({ selected, onSelect }) => {
                 />
             </button>
             {isOpen && (
-                <ul className="absolute left-0 mt-2 w-full min-w-40 bg-bgLightPink text-bgGray rounded-xl shadow-lg z-10 overflow-hidden border-2 border-bgDarkGray ">
+                <ul className="absolute left-0 mt-2 w-full min-w-40 bg-bgLightPink text-bgGray rounded-xl shadow-lg z-10 overflow-hidden border border-bgDarkGray ">
                     {QUADRANTS.map((quadrant) => (
                         <li
                             key={quadrant.id}
                             onClick={() => handleClick(quadrant)}
                             className="px-4 py-2 hover:bg-bgGray hover:text-white cursor-pointer transition-colors text-sm"
                         >
-                            {quadrant.label}
+                            {quadrant.description}
                         </li>
                     ))}
                 </ul>
