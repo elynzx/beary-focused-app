@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Dropdown } from "../dropdown/dropdown";
-import bear1 from "../../../assets/progress-bear-1.svg";
-import bear2 from "../../../assets/progress-bear-2.svg";
-import bear3 from "../../../assets/progress-bear-3.svg";
-import bear4 from "../../../assets/progress-bear-4.svg";
+import bear1 from "../../../assets/progress-bar/progress-bear-1.svg";
+import bear2 from "../../../assets/progress-bar/progress-bear-2.svg";
+import bear3 from "../../../assets/progress-bar/progress-bear-3.svg";
+import bear4 from "../../../assets/progress-bar/progress-bear-4.svg";
+import { ProgressBar } from "../progress-bar/progressBar";
 
 const BEARS = [bear1, bear2, bear3, bear4];
 
@@ -26,7 +27,6 @@ export function Header({ onAdd, tasks }) {
         return BEARS[3];
     };
 
-
     const handleClick = () => {
         if (!title || !quadrantId) return;
         if (onAdd) {
@@ -38,20 +38,17 @@ export function Header({ onAdd, tasks }) {
 
     return (
         <header className="w-full px-12 py-6 flex items-center justify-between border-b border-black shrink-0">
-            <div className="relative group transition-transform duration-500 hover:scale-105">
-                <img
-                    src={bear}
-                    className="h-20 object-contain"
-                    alt="Bear mascot"
+            <div className="flex flex-col justify-between gap-4">
+                <h2 className="text-xl font-semibold font-title text-bgDarkGray">
+                    Beary Focused
+                </h2>
+                <ProgressBar
+                    progress={progress}
+                    completed={doNowCompleted}
+                    total={doNowTotal}
+                    bear={getBear()}
                 />
-
-                <div className="absolute top-13 left-10 w-32 text-center">
-                    <p className="text-bgBrown4 font-bold animate-pulse">
-                        " Today, I will... "
-                    </p>
-                </div>
             </div>
-
             <div className="flex">
                 <span className="font-semibold text-bgDarkGray mr-8 mt-2.5">
                     Quick Add Task:

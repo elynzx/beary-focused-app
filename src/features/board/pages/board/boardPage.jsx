@@ -8,7 +8,7 @@ export function BoardPage() {
 
     return (
         <div className="flex flex-col w-full h-full">
-            <Header onAdd={addTask} />
+            <Header onAdd={addTask} tasks={tasks} />
             <div className="grid grid-cols-2 grid-rows-2 gap-6 p-6 flex-1 overflow-auto">
                 {QUADRANTS.map((quadrant) => (
                     <TaskCard
