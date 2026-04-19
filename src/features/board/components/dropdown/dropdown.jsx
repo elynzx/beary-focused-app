@@ -16,7 +16,7 @@ export const Dropdown = ({ selected, onSelect }) => {
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-48 lg:w-50 h-9 px-5 text-bgDarkGray font-bold bg-white border border-bgDarkGray/50 rounded-full flex items-center justify-between hover:opacity-90 transition-all"
+                className="w-full lg:w-50 h-9 px-5 text-bgDarkGray font-bold bg-white border border-bgDarkGray/50 rounded-full flex items-center justify-between hover:opacity-90 transition-all"
             >
                 <span className="truncate">
                     {selectedOption ? selectedOption.label : "Select priority"}

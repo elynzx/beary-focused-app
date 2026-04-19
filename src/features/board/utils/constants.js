@@ -1,7 +1,7 @@
 export const QUADRANTS = [
     {
         id: "DO_NOW",
-        label: "Do Now",
+        label: "Do it right now",
         description: "Urgent & Important",
         headerBg: "bg-bgDarkPink/80",
         headerText: "text-white",
@@ -9,7 +9,7 @@ export const QUADRANTS = [
     },
     {
         id: "SCHEDULE",
-        label: "Schedule",
+        label: "Plan for later",
         description: "Important, not Urgent",
         headerBg: "bg-bgPink",
         headerText: "text-bgDarkGray",
@@ -17,16 +17,16 @@ export const QUADRANTS = [
     },
     {
         id: "DELEGATE",
-        label: "Delegate",
-        description: "Urgent, not Important",
+        label: "Ask for a hand",
+        description: "Urgent, but not that deep",
         headerBg: "bg-bgLightPink/70",
         headerText: "text-bgDarkGray",
         hoverBg: "hover:bg-bgLightPink/50",
     },
     {
         id: "ELIMINATE",
-        label: "Eliminate",
-        description: "Neither",
+        label: "Let it go",
+        description: "Not urgent, not needed",
         headerBg: "bg-bgLightGray",
         headerText: "text-bgDarkGray",
         hoverBg: "hover:bg-bgLightGray/70",

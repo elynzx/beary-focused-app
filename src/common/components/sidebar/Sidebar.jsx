@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export function Sidebar() {
     return (
-        <aside className="w-full lg:w-68 h-fit lg:h-full border-b lg:border-b-0 lg:border-r border-bgDarkGray/50 flex flex-col sm:flex-row lg:flex-col items-center justify-between lg:justify-start py-4 lg:py-8 px-6 bg-white/50 lg:bg-transparent">
+        <aside className="w-full lg:w-68 h-fit lg:h-full border-b lg:border-b-0 lg:border-r border-bgDarkGray/50 flex flex-col sm:flex-row lg:flex-col items-center justify-between lg:justify-start py-2.5 lg:py-8 px-6 bg-white/50 lg:bg-transparent">
             <div className="flex items-center lg:flex-col w-full lg:w-auto justify-between lg:justify-start gap-4">
                 <Timer />
                 <nav className="flex flex-row lg:flex-col gap-2 lg:mt-8 lg:space-y-4 w-full justify-between">
@@ -38,7 +38,7 @@ export function Sidebar() {
                     </Link>
                 </nav>
             </div>
-            <div className="lg:flex hidden mt-auto w-full text-center p-4 border-t border-dotted border-bgDarkGray/60">
+            <div className="lg:flex hidden lg:mt-auto lg:justify-center w-full text-center p-4 border-t border-dotted border-bgDarkGray/60">
                 <p className="text-[12px] text-bgDarkGray italic tracking-widest">
                     <a
                         href="https://github.com/elynzx/beary-focused-app"

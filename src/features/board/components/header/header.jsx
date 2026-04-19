@@ -37,7 +37,7 @@ export function Header({ onAdd, tasks }) {
     };
 
     return (
-        <header className="w-full px-6 lg:px-12 py-6 lg:py-8 flex flex-col lg:flex-row lg:items-center justify-between border-b border-bgDarkGray/50 shrink-0">
+        <header className="w-full px-6 lg:px-12 py-4.5 lg:py-8 flex flex-col lg:flex-row lg:items-center justify-between border-b border-bgDarkGray/50 shrink-0">
             <div className="flex flex-col justify-between gap-4">
                 <h2 className="text-xl text-center lg:text-start font-semibold font-title text-bgDarkGray/80">
                     Beary Focused
@@ -49,11 +49,11 @@ export function Header({ onAdd, tasks }) {
                     bear={getBear()}
                 />
             </div>
-            <div className="flex flex-col lg:flex-row">
-                <span className="font-semibold text-bgDarkGray mr-8 mt-4 lg:mt-2.5">
+            <div className="flex flex-col lg:flex-row justify-center">
+                <span className="font-semibold text-bgDarkGray md:mr-2 lg:mr-8 mt-1 lg:mt-2.5">
                     Add Task:
                 </span>
-                <div className="flex flex-col gap-4 lg:gap-3 w-full lg:w-85 mt-2 lg:mt-0">
+                <div className="flex flex-col gap-2 lg:gap-3 w-full lg:w-85 mt-2 lg:mt-0">
                     <input
                         placeholder="I need to..."
                         value={title}
