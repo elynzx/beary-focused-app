@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playwrite+NO:wght@100..400&display=swap");
 @import "tailwindcss";
 
 @theme {
     --font-body: "Karla", sans-serif;
-    --font-title: "Source Code Pro", monospace;
+    --font-title: "Playwrite NO", cursive;
 
     /*Base*/
     --color-bgPink: #fee2f1;
