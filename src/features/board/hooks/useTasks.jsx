@@ -19,15 +19,15 @@ export const useTasks = () => {
         setTasks(updated);
     };
 
-    const updatedTask = (id, changes) => {
+    const updateTask = (id, changes) => {
         const updated = tasks.map((task) =>
-            task.id === id ? { ...tasks, ...changes } : task,
+            task.id === id ? { ...task, ...changes } : task,
         );
         setTasks(updated);
     };
 
     const updateStatus = (id, newStatus) => {
-        updateTaks(id, { status: newStatus });
+        updateTask(id, { status: newStatus });
     };
 
     return {
