@@ -13,7 +13,7 @@ export function BoardPage() {
                 {QUADRANTS.map((quadrant) => (
                     <TaskCard
                         key={quadrant.id}
-                        title={quadrant.label}
+                        quadrant={quadrant}
                         subtitle={quadrant.description}
                         tasks={tasks.filter(
                             (task) => task.quadrant === quadrant.id,

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import bearDone from "../../../../assets/mini-bear2.svg";
-import bearPending from "../../../../assets/mini-bear3.svg";
+import bearPending from "../../../../assets/mini-bear.svg";
+import { useNavigate } from "react-router";
+import { LuChevronRight } from "react-icons/lu";
 
 export function TaskCard({
-    title,
-    subtitle,
+    quadrant,
     tasks,
     onDelete,
     onUpdateStatus,
@@ -12,6 +13,11 @@ export function TaskCard({
 }) {
     const [editingId, setEditingId] = useState(null);
     const [editingText, setEditingText] = useState("");
+
+    const completed = tasks.filter(
+        (task) => task.status === "COMPLETED",
+    ).length;
+    const total = tasks.length;
 
     const startEditing = (task) => {
         setEditingId(task.id);
@@ -31,11 +37,34 @@ export function TaskCard({
     };
 
     return (
-        <div className="bg-white rounded-3xl flex flex-col shadow-sm border border-bgDarkGray w-full h-full">
-            <div className="text-white py-2 rounded-t-3xl flex flex-col items-center justify-center bg-bgDarkPink">
-                <span className="text-xs font-bold">{title}</span>
-                <span className="text-xs opacity-70">{subtitle}</span>
+        <div className="col-span-1 bg-white rounded-2xl flex flex-col shadow-sm border border-bgDarkGray w-full h-56">
+            
+            <div
+                onClick={() => navigate(`/focus/${quadrant.id}`)}
+                className={`
+                    group py-3 px-6 rounded-t-2xl flex items-center justify-between
+                    cursor-pointer transition-all duration-200
+                    ${quadrant.headerBg} ${quadrant.headerText} ${quadrant.hoverBg}
+                `}
+            >
+                <div className="flex flex-col">
+                    <span className="text-xs font-bold">{quadrant.label}</span>
+                    <span className="text-xs opacity-70">
+                        {quadrant.description}
+                    </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold opacity-80">
+                        {completed}/{total}
+                    </span>
+                    <LuChevronRight
+                        className="text-lg opacity-0 group-hover:opacity-100 
+                                   transition-all duration-200 group-hover:translate-x-1"
+                    />
+                </div>
             </div>
+
             <div className="flex-1 flex flex-col justify-start p-4 gap-1">
                 {tasks.length === 0 && (
                     <p className="text-xs text-bgDarkGray/40 text-center mt-4">
@@ -43,10 +72,7 @@ export function TaskCard({
                     </p>
                 )}
                 {tasks.map((task) => (
-                    <div
-                        key={task.id}
-                        className="flex items-center gap-3 px-2"
-                    >
+                    <div key={task.id} className="flex items-center gap-3 px-2">
                         <img
                             src={
                                 task.status === "COMPLETED"
