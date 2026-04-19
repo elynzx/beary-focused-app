@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 import { Header } from "../../features/board/components/header/header";
 import { useTasks } from "../../features/board/hooks/useTasks";
-import { Sidebar } from "../components/sidebar/sidebar";
+import { Sidebar } from "../components/sidebar/sidebar.jsx";
 
 export function RootLayout() {
     const { tasks, addTask, deleteTask, updateStatus, updateTask } = useTasks();
