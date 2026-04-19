@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Dropdown } from "../dropdown/dropdown";
-import bear1 from "../../../assets/progress-bar/progress-bear-1.svg";
-import bear2 from "../../../assets/progress-bar/progress-bear-2.svg";
-import bear3 from "../../../assets/progress-bar/progress-bear-3.svg";
-import bear4 from "../../../assets/progress-bar/progress-bear-4.svg";
+import bear1 from "../../../../assets/progress-bar/progress-bear-1.svg";
+import bear2 from "../../../../assets/progress-bar/progress-bear-2.svg";
+import bear3 from "../../../../assets/progress-bar/progress-bear-3.svg";
+import bear4 from "../../../../assets/progress-bar/progress-bear-4.svg";
 import { ProgressBar } from "../progress-bar/progressBar";
 
 const BEARS = [bear1, bear2, bear3, bear4];
@@ -37,9 +37,9 @@ export function Header({ onAdd, tasks }) {
     };
 
     return (
-        <header className="w-full px-12 py-6 flex items-center justify-between border-b border-black shrink-0">
+        <header className="w-full px-6 lg:px-12 py-6 lg:py-8 flex flex-col lg:flex-row lg:items-center justify-between border-b border-bgDarkGray/50 shrink-0">
             <div className="flex flex-col justify-between gap-4">
-                <h2 className="text-xl font-semibold font-title text-bgDarkGray">
+                <h2 className="text-xl text-center lg:text-start font-semibold font-title text-bgDarkGray/80">
                     Beary Focused
                 </h2>
                 <ProgressBar
@@ -49,25 +49,25 @@ export function Header({ onAdd, tasks }) {
                     bear={getBear()}
                 />
             </div>
-            <div className="flex">
-                <span className="font-semibold text-bgDarkGray mr-8 mt-2.5">
-                    Quick Add Task:
+            <div className="flex flex-col lg:flex-row">
+                <span className="font-semibold text-bgDarkGray mr-8 mt-4 lg:mt-2.5">
+                    Add Task:
                 </span>
-                <div className="flex flex-col gap-3 w-80">
+                <div className="flex flex-col gap-4 lg:gap-3 w-full lg:w-85 mt-2 lg:mt-0">
                     <input
                         placeholder="I need to..."
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && handleClick()}
-                        className="bg-white h-9 text-xs px-6 text-bgDarkGray outline-none border border-transparent focus:border-bgDarkGray transition-all rounded-full placeholder:text-bgBrown4/40"
+                        className="bg-white h-9 text-xs px-6 font-semibold text-bgDarkGray shadow-xs outline-none border border-transparent focus:border-bgDarkGray/50 transition-all rounded-full placeholder:text-bgDarkGray/50"
                     />
-                    <div className="flex gap-3 justify-between">
+                    <div className="flex gap-3 lg:gap-3 justify-between">
                         <Dropdown
                             selected={quadrantId}
                             onSelect={setQuadrantId}
                         />
                         <button
-                            className="px-6 h-9 text-xs rounded-full text-bgDarkGray border border-bgDarkGray font-bold hover:brightness-110 active:scale-95 transition-all"
+                            className="px-6 lg:px-6 h-9 text-xs rounded-full bg-bgDarkGray/80 text-white border border-bgDarkGray/50 font-bold hover:brightness-110 active:scale-95 transition-all"
                             onClick={handleClick}
                         >
                             Add Task

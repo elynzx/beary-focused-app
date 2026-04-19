@@ -26,7 +26,7 @@ export const Timer = () => {
     const day = date.toLocaleDateString("en-US", { weekday: "long" });
 
     return (
-        <div className="py-3 w-52 text-bgDarkGray font-bold rounded-3xl bg-white border border-bgDarkGray flex flex-col items-center justify-center">
+        <div className="hidden lg:flex py-3 w-52 text-bgDarkGray/80 font-bold rounded-3xl bg-white border border-bgDarkGray flex-col items-center justify-center">
             <span className="font-title">Be kind</span>
             <span className="text-4xl">{timeString}</span>
             <span className="font-bold">{ampm}</span>

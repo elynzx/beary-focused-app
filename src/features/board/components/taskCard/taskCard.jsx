@@ -13,6 +13,7 @@ export function TaskCard({
 }) {
     const [editingId, setEditingId] = useState(null);
     const [editingText, setEditingText] = useState("");
+    const navigate = useNavigate();
 
     const completed = tasks.filter(
         (task) => task.status === "COMPLETED",
@@ -37,42 +38,36 @@ export function TaskCard({
     };
 
     return (
-        <div className="col-span-1 bg-white rounded-2xl flex flex-col shadow-sm border border-bgDarkGray w-full h-56">
-            
+        <div className="col-span-1 bg-white rounded-2xl flex flex-col border border-bgDarkGray/50 w-full h-full">
             <div
                 onClick={() => navigate(`/focus/${quadrant.id}`)}
                 className={`
-                    group py-3 px-6 rounded-t-2xl flex items-center justify-between
+                    group py-2.5 px-6 rounded-t-2xl flex items-center justify-between
                     cursor-pointer transition-all duration-200
                     ${quadrant.headerBg} ${quadrant.headerText} ${quadrant.hoverBg}
                 `}
             >
                 <div className="flex flex-col">
-                    <span className="text-xs font-bold">{quadrant.label}</span>
-                    <span className="text-xs opacity-70">
-                        {quadrant.description}
-                    </span>
+                    <span className="text-2xs font-bold">{quadrant.label}</span>
+                    <span className="text-xs">{quadrant.description}</span>
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold opacity-80">
+                    <span className="text-xs font-semibold ">
                         {completed}/{total}
                     </span>
-                    <LuChevronRight
-                        className="text-lg opacity-0 group-hover:opacity-100 
-                                   transition-all duration-200 group-hover:translate-x-1"
-                    />
+                    <LuChevronRight className="text-lg transition-all duration-200 group-hover:translate-x-1" />
                 </div>
             </div>
 
-            <div className="flex-1 flex flex-col justify-start p-4 gap-1">
-                {tasks.length === 0 && (
-                    <p className="text-xs text-bgDarkGray/40 text-center mt-4">
+            <div className="flex-1 font-item flex flex-col justify-start px-4 py-6 gap-1">
+                {total === 0 && (
+                    <p className="text-xs text-bgDarkGray text-center mt-4">
                         No tasks yet
                     </p>
                 )}
                 {tasks.map((task) => (
-                    <div key={task.id} className="flex items-center gap-3 px-2">
+                    <div key={task.id} className="flex items-center gap-4 px-2">
                         <img
                             src={
                                 task.status === "COMPLETED"
@@ -88,7 +83,7 @@ export function TaskCard({
                                 )
                             }
                             alt="status"
-                            className="w-6 h-6 shrink-0 cursor-pointer transition-transform active:scale-90"
+                            className="w-5 h-5 shrink-0 cursor-pointer transition-transform active:scale-90"
                         />
 
                         {editingId === task.id ? (
@@ -98,12 +93,12 @@ export function TaskCard({
                                 onChange={(e) => setEditingText(e.target.value)}
                                 onBlur={saveEdit}
                                 onKeyDown={handleKeyDown}
-                                className="text-xs text-bgDarkGray font-bold outline-none flex-1 bg-transparent border-b border-bgDarkGra"
+                                className="text-xs text-bgDarkGray font-semibold outline-none flex-1 bg-transparent border-b border-bgDarkGra"
                             />
                         ) : (
                             <span
                                 onClick={() => startEditing(task)}
-                                className={`text-xs text-bgDarkGray font-bold  flex-1 cursor-text border-b border-dotted border-bgDarkGray ${
+                                className={`text-xs text-bgDarkGray font-semibold  flex-1 cursor-text border-b border-dotted pb-1 border-bgDarkGray ${
                                     task.status === "COMPLETED"
                                         ? "line-through opacity-50"
                                         : ""
