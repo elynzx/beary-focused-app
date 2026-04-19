@@ -1,21 +1,31 @@
 import { useState, useEffect } from "react";
 import { Dropdown } from "../dropdown/dropdown";
-import bearHeader1 from "../../../assets/header-bear-1.svg";
-import bearHeader2 from "../../../assets/header-bear-2.svg";
+import bear1 from "../../../assets/progress-bear-1.svg";
+import bear2 from "../../../assets/progress-bear-2.svg";
+import bear3 from "../../../assets/progress-bear-3.svg";
+import bear4 from "../../../assets/progress-bear-4.svg";
 
-export function Header({ onAdd }) {
-    const [bear, setBear] = useState(bearHeader1);
+const BEARS = [bear1, bear2, bear3, bear4];
+
+export function Header({ onAdd, tasks }) {
     const [title, setTitle] = useState("");
     const [quadrantId, setQuadrantId] = useState(null);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setBear((image) =>
-                image === bearHeader1 ? bearHeader2 : bearHeader1,
-            );
-        }, 800);
-        return () => clearInterval(interval);
-    }, []);
+    const doNowTasks = tasks.filter((t) => t.quadrant === "DO_NOW");
+    const doNowCompleted = doNowTasks.filter(
+        (t) => t.status === "COMPLETED",
+    ).length;
+    const doNowTotal = doNowTasks.length;
+    const progress =
+        doNowTotal === 0 ? 0 : Math.round((doNowCompleted / doNowTotal) * 100);
+
+    const getBear = () => {
+        if (doNowTotal === 0 || progress === 0) return BEARS[0];
+        if (progress < 51) return BEARS[1];
+        if (progress < 100) return BEARS[2];
+        return BEARS[3];
+    };
+
 
     const handleClick = () => {
         if (!title || !quadrantId) return;
