@@ -31,7 +31,7 @@ export function FocusPage() {
                 onBack={() => navigate(-1)}
             />
 
-            <div className="flex flex-col gap-12 lg:flex-1 overflow-hidden px-6">
+            <div className="flex flex-col lg:flex-row gap-12 lg:flex-1 overflow-hidden px-6">
                 <div className="flex flex-col flex-1 gap-3">
                     <FocusProgressBar
                         completed={completed}
